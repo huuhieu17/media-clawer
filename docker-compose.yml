@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  media-crawler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: media-crawler
+    restart: unless-stopped
+    ports:
+      - "7778:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - TZ=Asia/Ho_Chi_Minh
+    volumes:
+      # Optional: Mount a folder on NAS for data persistence
+      - media-crawler-data:/app/data
+      # Optional: Mount logs folder
+      - media-crawler-logs:/app/logs
+    networks:
+      - media-crawler-net
+    # Resource limits for NAS
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+volumes:
+  media-crawler-data:
+    driver: local
+  media-crawler-logs:
+    driver: local
+
+networks:
+  media-crawler-net:
+    driver: bridge
