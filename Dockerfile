@@ -3,32 +3,31 @@ FROM node:20-slim
 
 # Install system dependencies for Playwright Chromium
 RUN apt-get update && apt-get install -y \
-    libgconf-2-4 \
-    libatk1.0-0 \
-    libatk-bridge2.0-0 \
-    libgdk-pixbuf2.0-0 \
-    libgdk-pixbuf2.0-common \
-    libgtk-3-0 \
-    libgtk-3-common \
-    libpango-1.0-0 \
-    libpango-gobject-0 \
-    libxss1 \
-    libappindicator1 \
-    libindicator7 \
-    libnss3 \
-    libgconf-2-4 \
-    libnspr4 \
-    libnss3 \
-    fonts-liberation \
-    libappindicator3-1 \
-    libxss1 \
-    lsb-release \
-    xdg-utils \
-    wget \
     ca-certificates \
+    fonts-liberation \
     fonts-noto \
     fonts-noto-cjk \
-    tzdata \
+    libasound2 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libcups2 \
+    libdbus-1-3 \
+    libexpat1 \
+    libgbm1 \
+    libglib2.0-0 \
+    libgtk-3-0 \
+    libnspr4 \
+    libnss3 \
+    libpango-1.0-0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxext6 \
+    libxfixes3 \
+    libxrandr2 \
+    libxss1 \
+    libxtst6 \
+    wget \
+    xdg-utils \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
