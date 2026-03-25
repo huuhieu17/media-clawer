@@ -20,16 +20,6 @@ services:
       - media-crawler-logs:/app/logs
     networks:
       - media-crawler-net
-    # Resource limits for NAS
-    deploy:
-      resources:
-        limits:
-          cpus: '2'
-          memory: 2G
-        reservations:
-          cpus: '0.5'
-          memory: 512M
-
 volumes:
   media-crawler-data:
     driver: local
